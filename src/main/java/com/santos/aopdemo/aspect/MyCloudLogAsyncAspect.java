@@ -7,15 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(2)
-public class MyDemoLoggingAspect {
-
-    // this is where we add all of our related advices for logging
-
-    // let's start with an @Before advice
+@Order(1)
+public class MyCloudLogAsyncAspect {
 
     @Before("com.santos.aopdemo.aspect.SantosAopExpressions.forDaoPackageNoGetterSetter()")
-    public void beforeAddAccountAdvice() {
-        System.out.println("\n=====>>> Executing @Before advice on method");
+    public void logToCloudAsync() {
+        System.out.println("\n=====>>>> Logging to Cloud in async fashion");
     }
+
 }
